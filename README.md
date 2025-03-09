@@ -6,7 +6,8 @@ Verilog로 설계한 RISC-V 기반 32-bit CPU 입니다. 먼저 단일 사이클
 # This project includes..
 + ### PC(Program Counter), Instruction MEM, ALU, Register File (Data MEM은 testbench에서 구현)
 + ### 5-stage pipeline structure
-  + Data hazard -> forwarding unit, load-stall detection unit 
+  + Data Hazard -> EX-stage Forwarding Unit, Load-use Hazard Detection Unit
+  + Control Hazard -> ID-stage branch target computation, ID-stage Forwarding Unit, Branch Hazard Detection Unit
 
 <br/><br/>
 
