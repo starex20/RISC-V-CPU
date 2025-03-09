@@ -41,11 +41,23 @@ Verilog로 설계한 RISC-V 기반 32-bit CPU 입니다. 먼저 단일 사이클
     <td>slt</td>
   </tr>
   <tr>
-    <td rowspan="2">I-type</td>
+    <td rowspan="6">I-type</td>
     <td>addi</td>
   </tr>
   <tr>
     <td>subi</td>
+  </tr>
+  <tr>
+    <td>andi</td>
+  </tr>
+  <tr>
+    <td>ori</td>
+  </tr>
+  <tr>
+    <td>slti</td>
+  </tr>
+  <tr>
+    <td>jalr</td>
   </tr>
 </table>
 
