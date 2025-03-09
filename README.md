@@ -19,12 +19,26 @@ Verilog로 설계한 RISC-V 기반 32-bit CPU 입니다. 먼저 단일 사이클
 <br/>
 
 ### 구현 명령어 set
-| Format  | Instruction |
-|---------|------------|
-| R-type  | add        |
-| R-type  | sub        |
-| I-type  | addi       |
-| I-type  | subi       |
+<table>
+  <tr>
+    <th>Format</th>
+    <th>Instruction</th>
+  </tr>
+  <tr>
+    <td rowspan="2">R-type</td>
+    <td>add</td>
+  </tr>
+  <tr>
+    <td>sub</td>
+  </tr>
+  <tr>
+    <td rowspan="2">I-type</td>
+    <td>addi</td>
+  </tr>
+  <tr>
+    <td>subi</td>
+  </tr>
+</table>
 
 <br/>
 
