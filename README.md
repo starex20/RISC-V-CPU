@@ -9,7 +9,7 @@ Verilog로 설계한 RISC-V 기반 32-bit CPU 입니다. 먼저 단일 사이클
   + Data Hazard -> EX-stage Forwarding Unit, Load-use Hazard Detection Unit
   + Control Hazard -> ID-stage branch target computation, ID-stage Forwarding Unit, Branch Hazard Detection Unit
 + ### Dynamic branch prediction using 2bit counter
-+ ### TestBench (이중 for loop, factorial 함수)
++ ### TestBench (이중 for문, factorial 함수)
 
 <br/><br/>
 
