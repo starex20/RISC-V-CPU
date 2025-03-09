@@ -3,7 +3,7 @@ Verilog로 설계한 RISC-V 32비트 CPU 입니다. 먼저 단일 사이클(sing
 
 <br/><br/>
 
-### Overview
+### Block Diagram
 ![Image](https://github.com/user-attachments/assets/73cced7f-772a-4a1f-aa00-b05213553efa)
 
 <br/>
