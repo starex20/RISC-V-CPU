@@ -82,24 +82,24 @@ module RISCV(
 		end
 		
 		else begin
-		    if( JALR_MEM ) begin 
+			if( JALR_MEM ) begin 
 				PC <= ALUResult_MEM;
-			end
-			else if( Mispredict ) begin
-			    PC <= PCplus4_ID;
-			end
-			else if( load_stall || branch_stall ) begin // load/branch stall (ID-stage)
-			     PC <= PC;
-			end
-			else if( JAL || Jump ) begin 
-			     PC <= PC_jump_ID; 
-			end
-			else if( taken && Instruction[6:0] == 7'b1100011 ) begin // IF stage
-			     PC <= Target;
-			end
-			else begin
+		    	end
+		    	else if( Mispredict ) begin
+		        	PC <= PCplus4_ID;
+		    	end
+		    	else if( load_stall || branch_stall ) begin // load/branch stall (ID-stage)
+		        	PC <= PC;
+	            	end
+		    	else if( JAL || Jump ) begin 
+		        	PC <= PC_jump_ID; 
+		    	end
+		    	else if( taken && Instruction[6:0] == 7'b1100011 ) begin // IF stage
+		        	PC <= Target;
+		    	end
+		    	else begin
 				PC <= PCplus4;
-			end
+		    	end
 		end
 	end
 	
