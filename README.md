@@ -13,13 +13,13 @@ Verilog로 설계한 RISC-V 기반 32-bit CPU 입니다. 먼저 단일 사이클
 
 <br/><br/>
 
-### Block Diagram
+# Block Diagram
 ![image](https://github.com/user-attachments/assets/21809222-f1fd-4055-8cce-6e37049a8fba)
 
 
 <br/>
 
-### 구현 명령어 set
+# 구현 명령어 set
 <table>
   <tr>
     <th>Format</th>
@@ -79,7 +79,7 @@ Verilog로 설계한 RISC-V 기반 32-bit CPU 입니다. 먼저 단일 사이클
 
 <br/>
 
-### Simulation Result
+# Simulation Result
 ![Image](https://github.com/user-attachments/assets/9acf7ef1-58ce-4fd7-adab-f67b2ae1018f)
 
 
