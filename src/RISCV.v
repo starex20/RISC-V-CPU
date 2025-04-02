@@ -51,24 +51,24 @@ module RISCV(
 	// comparator & branch signal in ID-stage
 	wire Jump = Branch && (RS1Data_final == RS2Data_final); 
 	
-    // flush signal
-    wire IF_Flush, ID_Flush, EX_Flush, MEM_Flush; 
-    assign IF_Flush = (!branch_stall && Jump) || JAL || JALR_MEM || Mispredict;
-    assign ID_Flush = JALR_MEM || load_stall || branch_stall;
-    assign EX_Flush = JALR_MEM;
+    	// flush signal
+    	wire IF_Flush, ID_Flush, EX_Flush, MEM_Flush; 
+    	assign IF_Flush = (!branch_stall && Jump) || JAL || JALR_MEM || Mispredict;
+    	assign ID_Flush = JALR_MEM || load_stall || branch_stall;
+    	assign EX_Flush = JALR_MEM;
    
-   // pipeline register enable signal
-    assign en_IF_ID = ~(load_stall | branch_stall); 
+   	// pipeline register enable signal
+    	assign en_IF_ID = ~(load_stall | branch_stall); 
     
 	//ALU data
 	wire [31:0] ImmSignExt, ImmSignExt_EX;
 	wire [31:0] ALUB;
 	wire [31:0] ALUResult, ALUResult_MEM, ALUResult_WB;	 
 		    
-    wire [31:0] DataMemWData_MEM;
-    wire [31:0] DataMemRData_WB;
+    	wire [31:0] DataMemWData_MEM;
+    	wire [31:0] DataMemRData_WB;
    
-    wire [31:0] PC_jump_ID = PC_ID +ImmSignExt;
+    	wire [31:0] PC_jump_ID = PC_ID +ImmSignExt;
 	//wire [31:0] PC_jump_EX = PC_EX + ImmSignExt_EX;
 	//wire [31:0] PC_jump_MEM;
 	wire [31:0] Target; 
@@ -139,23 +139,23 @@ module RISCV(
 	// load stall detection unit	
 	assign load_stall = MemRead_EX && (RDNum_EX == RS1Num || RDNum_EX == RS2Num) ? 1 : 0;
 	
-    // ID-stage forwarding unit
-    wire  [31:0] RS1Data_final = Branch && RegWrite_MEM && RDNum_MEM && RDNum_MEM == RS1Num ? ALUResult_MEM :
+    	// ID-stage forwarding unit
+    	wire  [31:0] RS1Data_final = Branch && RegWrite_MEM && RDNum_MEM && RDNum_MEM == RS1Num ? ALUResult_MEM :
 	                            (Branch && RegWrite_WB && RDNum_WB && RDNum_WB == RS1Num ? RDData_WB : RS1Data);
-    wire  [31:0] RS2Data_final = Branch && RegWrite_MEM && RDNum_MEM && RDNum_MEM == RS2Num ? ALUResult_MEM :
+    	wire  [31:0] RS2Data_final = Branch && RegWrite_MEM && RDNum_MEM && RDNum_MEM == RS2Num ? ALUResult_MEM :
 	                            (Branch && RegWrite_WB && RDNum_WB && RDNum_WB == RS2Num ? RDData_WB : RS2Data);
 	
 	// brach stall detection unit 
 	assign branch_stall = (Branch && RegWrite_EX && (RDNum_EX == RS1Num || RDNum_EX == RS2Num)) ||  
 	                      (Branch && MemRead_MEM && (RDNum_MEM == RS1Num || RDNum_MEM == RS2Num)) ? 1 : 0;
 	
-    wire  [6:0] funct7, funct7_EX;
-    wire  [2:0] funct3, funct3_EX;
-    wire  [6:0] OpCode, OpCode_EX;
+    	wire  [6:0] funct7, funct7_EX;
+    	wire  [2:0] funct3, funct3_EX;
+    	wire  [6:0] OpCode, OpCode_EX;
     
-    assign funct7 = Inst_ID[31:25];
-    assign funct3 = Inst_ID[14:12];
-    assign OpCode = Inst_ID[6:0];
+    	assign funct7 = Inst_ID[31:25];
+    	assign funct3 = Inst_ID[14:12];
+    	assign OpCode = Inst_ID[6:0];
     
 
 	// -------------------------------------------------------------------------------------------------------------
