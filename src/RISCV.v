@@ -110,20 +110,20 @@ module RISCV(
 	assign Mispredict = Branch && taken_ID && !Jump; 
 	
 	// Branch Prediction Buffer
-	BPB bpb (.CLK(CLK), .RST(RST), .Branch(Branch), .next_state(next_state), .WriteNum(PC_ID[5:2]), .ReadNum(PC[5:2]), .current_state(current_state) );
+	BPB bpb (.CLK(CLK), .RST(RST), .Branch(Branch), .Jump(Jump), .next_state(next_state), .WriteNum(PC_ID[5:2]), .ReadNum(PC[5:2]), .current_state(current_state) );
 	
 	// Branch Target Buffer
 	BTB btb (.CLK(CLK), .Jump(Jump), .ReadNum(PC[5:2]), .WriteNum(PC_ID[5:2]), .PC_jump(PC_jump_ID), .Target(Target) ); 
 	
 	// FSM (00 : strongly not, 01 : weakly not, 10 : weakly taken, 11 : strongly taken)
-    always @(*)
-        case (current_state_ID)
-            2'b00 : next_state = Jump ? 2'b01 : 2'b00;
-            2'b01 : next_state = Jump ? 2'b10 : 2'b00;
-            2'b10 : next_state = Branch && !Jump ? 2'b01 : 2'b11;
-            2'b11 : next_state = Branch && !Jump ? 2'b10 : 2'b11;
-            default : next_state = 2'bxx;
-        endcase
+    	always @(*)
+            case (current_state_ID)
+            	2'b00 : next_state = Jump ? 2'b01 : 2'b00;
+            	2'b01 : next_state = Jump ? 2'b10 : 2'b00;
+            	2'b10 : next_state = Branch && !Jump ? 2'b01 : 2'b11;
+            	2'b11 : next_state = Branch && !Jump ? 2'b10 : 2'b11;
+            	default : next_state = 2'bxx;
+            endcase
 	
 	assign InstMemRAddr = PC;
 	assign Instruction = InstMemRData;
