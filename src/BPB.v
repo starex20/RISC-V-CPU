@@ -27,6 +27,16 @@ module BPB( // Branch Prediction Buffer
                 Buffer[WriteNum] <= next_state;
         end
     end
+
+    // FSM (00 : strongly not, 01 : weakly not, 10 : weakly taken, 11 : strongly taken)
+    always @(*)
+        case (current_state_ID)
+        	2'b00 : next_state = Jump ? 2'b01 : 2'b00;
+         	2'b01 : next_state = Jump ? 2'b10 : 2'b00;
+           	2'b10 : next_state = Branch && !Jump ? 2'b01 : 2'b11;
+           	2'b11 : next_state = Branch && !Jump ? 2'b10 : 2'b11;
+           	default : next_state = 2'bxx;
+        endcase
     
     //output 
     assign current_state = Buffer[ReadNum];
