@@ -110,7 +110,7 @@ module RISCV(
 	assign Mispredict = Branch && taken_ID && !Jump; 
 	
 	// Branch Prediction Buffer
-	BPB bpb (.CLK(CLK), .RST(RST), .Branch(Branch), .Jump(Jump), .next_state(next_state), .WriteNum(PC_ID[5:2]), .ReadNum(PC[5:2]), .current_state(current_state) );
+	BPB bpb (.CLK(CLK), .RST(RST), .Branch(Branch), .Jump(Jump), .WriteNum(PC_ID[5:2]), .ReadNum(PC[5:2]), .current_state_ID(current_state_ID), .current_state(current_state) );
 	
 	// Branch Target Buffer
 	BTB btb (.CLK(CLK), .Jump(Jump), .ReadNum(PC[5:2]), .WriteNum(PC_ID[5:2]), .PC_jump(PC_jump_ID), .Target(Target) ); 
