@@ -11,17 +11,12 @@ module pipeline_register #(
 );
 
     always @(posedge CLK or negedge RST) begin
-        if (!RST) begin
-            Q <= 0;            // ¸®¼Â ½Ã Ãâ·Â 0À¸·Î ÃÊ±âÈ­
-        end 
-        else begin
-            if(Flush) 
-                Q <= 0;        // ¸ðµç signal 0À¸·Î ¸¸µë
-            else if(en)
-                Q <= D;        // ÀÔ·ÂÀ» Ãâ·ÂÀ¸·Î Àü´Þ
-            else 
-                Q <= Q;        // en = 0ÀÌ¸é ÀÌÀü Ãâ·Â À¯Áö
-        end
+        if (!RST) 
+            Q <= 0;            // ë¦¬ì…‹ ì‹œ ì¶œë ¥ 0ìœ¼ë¡œ ì´ˆê¸°í™”
+        else if(Flush) 
+            Q <= 0;            // ëª¨ë“  signal 0ìœ¼ë¡œ ë§Œë“¬
+        else if(en)
+            Q <= D;        // ìž…ë ¥ì„ ì¶œë ¥ìœ¼ë¡œ ì „ë‹¬
     end
 
 endmodule
