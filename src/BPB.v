@@ -3,13 +3,16 @@
 module BPB( // Branch Prediction Buffer
     input wire              CLK,
     input wire              RST,
-    input wire              Branch,         // ID stage
-    input wire       [1:0]  next_state,     // ID stage
-    input wire       [3:0]  WriteNum,       // ID stage
-    input wire       [3:0]  ReadNum,        // IF stage
-    output wire      [1:0]  current_state   // IF stage
+    input wire              Branch,           // ID stage
+    input wire              Jump,             // ID stage
+    input wire       [3:0]  WriteNum,         // ID stage
+    input wire       [3:0]  ReadNum,          // IF stage
+
+    input wire       [1:0]  current_state_ID, // ID stage
+    output wire      [1:0]  current_state     // IF stage
 );
     reg [1:0] Buffer [15:0];
+    wire [1:0] next_state;
     
     // buffer write
     integer i;
