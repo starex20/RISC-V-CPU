@@ -1,6 +1,7 @@
 # RISC-V CPU
 
-![image](https://github.com/user-attachments/assets/3dc0040d-68f9-4c2d-8dc2-f79de50c8816)
+![image](https://github.com/user-attachments/assets/01ca048b-f84e-4882-ad56-5858d8f4390d)
+
 
 
 
