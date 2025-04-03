@@ -1,24 +1,8 @@
 # RISC-V CPU
 Verilog로 설계한 RISC-V 기반 32-bit CPU 입니다. 먼저 단일 사이클(single-cycle) 구조로 구현한 뒤, 파이프라인(pipeline) 구조로 확장했습니다.
 
-<table border="1">
-  <tr>
-    <th bgcolor="#FFC1CC">항목</th> <!-- 분홍색 -->
-    <th bgcolor="white">내용</th>   <!-- 하얀색 -->
-  </tr>
-  <tr>
-    <td bgcolor="#FFC1CC">프로젝트명</td>
-    <td bgcolor="white">CPU 설계</td>
-  </tr>
-  <tr>
-    <td bgcolor="#FFC1CC">주관 기관</td>
-    <td bgcolor="white">xx대학교</td>
-  </tr>
-  <tr>
-    <td bgcolor="#FFC1CC">개발 기간</td>
-    <td bgcolor="white">2025.06~2025.09</td>
-  </tr>
-</table>
+![image](https://github.com/user-attachments/assets/401d86bc-3e93-45c7-9ae4-9be27bf55123)
+
 
 
 
