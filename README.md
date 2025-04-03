@@ -20,6 +20,11 @@ Verilog로 설계한 RISC-V 기반 32-bit CPU 입니다. 먼저 단일 사이클
   </tr>
 </table>
 
+<br/>
+
+![image](https://github.com/user-attachments/assets/d2cb67a1-ca88-44a3-9ae6-4f979affe440)
+
+
 
 
 <br/><br/>
